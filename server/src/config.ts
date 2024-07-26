@@ -4,7 +4,7 @@ import winston from "winston";
 import fs from "fs";
 import { homedir } from "os";
 
-class Configuration {
+export class Configuration {
   private static instace: Configuration;
   public NODE_ENV!: string;
   public HOST!: string;
@@ -39,7 +39,7 @@ class Configuration {
     // Set up the data directory
     this.dataDIR = process.env.DATA_DIR
       ? process.env.DATA_DIR
-      : path.join(homedir(), "boilerplate");
+      : path.join(homedir(), "data");
     if (!fs.existsSync(this.dataDIR)) fs.mkdirSync(this.dataDIR);
   }
 

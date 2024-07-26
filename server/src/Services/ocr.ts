@@ -1,5 +1,3 @@
-import { logger } from "../config";
-
 // Constructor to initialize the OCR class with an image
 export class OCR {
   image: string;
@@ -21,7 +19,7 @@ export class OCR {
   // Method to validate the image before processing
   async validateImage(): Promise<void> {
     // Check if the image is provided
-    if (!this.image) {
+    if (!this.image || this.image.length === 0) {
       throw new Error("Kindly upload an image to proceed.");
     }
 
