@@ -27,7 +27,6 @@ class Configuration {
   }
 
   private setup() {
-    console.log(process.env.PORT);
     this.HOST = process.env.HOST ? process.env.HOST : "localhost";
     this.PORT = process.env.PORT ? process.env.PORT : "8000";
     this.LOG_LEVEL = process.env.LOG_LEVEL ? process.env.LOG_LEVEL : "info";
