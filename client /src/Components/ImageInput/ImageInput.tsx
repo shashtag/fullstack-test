@@ -1,5 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { toast } from "react-toastify";
+import validateImage from "./Utils/validateImage";
+import imgToBase64 from "./Utils/imgToBase64";
 
 const ImageInput = ({
   loading,
@@ -25,32 +27,13 @@ const ImageInput = ({
         id='Image'
         style={{ display: "none" }}
         onChange={async (e) => {
-          if (!e.target.files?.[0]) {
-            toast(
-              "Whoops! It seems you did not select an image. Please choose one to continue.",
-              {
-                theme: "dark",
-                type: "error",
-              },
-            );
-            return;
-          }
-          if (e.target.files?.[0]!.size > 5 * 1024 * 1024) {
-            console.log(e.target.files?.[0]!.size);
-            toast("Please ensure that the file size is less than 5MB.", {
-              theme: "dark",
-              type: "error",
-            });
-            return;
-          }
           setLoading(true);
-          let base64Img = "";
+          validateImage(e.target.files![0]);
+
           const reader = new FileReader();
 
           reader.onloadend = async () => {
-            base64Img = (reader.result as string)
-              .replace("data:", "")
-              .replace(/^.+,/, "");
+            const base64Img = imgToBase64(reader.result as string);
             try {
               const res = await axios.post("http://localhost:8000/ocr", {
                 image: base64Img,
@@ -59,14 +42,8 @@ const ImageInput = ({
               setPreviewUrl(reader.result);
               setText(res.data.message);
             } catch (error: unknown) {
-              console.error(
-                "smnjsnjssn",
-                (error as AxiosError<{ message: string }>).response?.data!
-                  .message,
-              );
               toast(
-                (error as AxiosError<{ message: string }>).response?.data!
-                  .message,
+                (error as AxiosError<{ error: string }>).response?.data?.error,
                 {
                   theme: "dark",
                   type: "error",

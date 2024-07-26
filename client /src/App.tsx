@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ImageInput from "./Components/ImageInput";
+import ImageInput from "./Components/ImageInput/ImageInput";
 import Loader from "./Components/Common/Loader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
