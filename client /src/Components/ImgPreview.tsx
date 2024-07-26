@@ -1,3 +1,4 @@
+// Component to display the image preview
 const ImgPreview = ({
   previewUrl,
 }: {
@@ -5,6 +6,7 @@ const ImgPreview = ({
 }) => {
   return (
     <div
+      role='img-preview'
       style={{
         backgroundColor: "#7B937F",
         backgroundImage: `url(${previewUrl})`,

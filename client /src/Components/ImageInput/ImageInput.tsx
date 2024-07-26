@@ -3,6 +3,7 @@ import imgToBase64 from "./Utils/imgToBase64";
 import sendImgToBackend from "./Utils/sendImgToBackend";
 import compressImage from "./Utils/compressImage";
 
+// Component for handling image input
 const ImageInput = ({
   loading,
   setLoading,
@@ -27,8 +28,9 @@ const ImageInput = ({
         style={{ display: "none" }}
         onChange={async (e) => {
           setLoading(true);
-          if (validateImage(e.target.files![0]) === 0) return;
+          if (validateImage(e.target.files![0]) === 0) return; // Validate the image
 
+          // Compress the image before uploading
           compressImage(e.target.files![0], (compressedResult) => {
             const reader = new FileReader();
 
@@ -42,7 +44,7 @@ const ImageInput = ({
               );
             };
 
-            reader.readAsDataURL(compressedResult);
+            reader.readAsDataURL(compressedResult); // Read the compressed image as a data URL
           });
         }}
       />

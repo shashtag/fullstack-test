@@ -1,5 +1,6 @@
 import React from "react";
 
+// Component to display and edit text
 const TextDisplay = ({
   loading,
   text,
