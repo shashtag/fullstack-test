@@ -1,7 +1,7 @@
-import axios, { AxiosError } from "axios";
-import { toast } from "react-toastify";
 import validateImage from "./Utils/validateImage";
 import imgToBase64 from "./Utils/imgToBase64";
+import sendImgToBackend from "./Utils/sendImgToBackend";
+import compressImage from "./Utils/compressImage";
 
 const ImageInput = ({
   loading,
@@ -19,7 +19,6 @@ const ImageInput = ({
   return (
     <>
       <input
-        max={30}
         disabled={loading}
         type='file'
         accept='image/*'
@@ -28,35 +27,23 @@ const ImageInput = ({
         style={{ display: "none" }}
         onChange={async (e) => {
           setLoading(true);
-          validateImage(e.target.files![0]);
+          if (validateImage(e.target.files![0]) === 0) return;
 
-          const reader = new FileReader();
+          compressImage(e.target.files![0], (compressedResult) => {
+            const reader = new FileReader();
 
-          reader.onloadend = async () => {
-            const base64Img = imgToBase64(reader.result as string);
-            try {
-              const res = await axios.post("http://localhost:8000/ocr", {
-                image: base64Img,
-              });
-
-              setPreviewUrl(reader.result);
-              setText(res.data.message);
-            } catch (error: unknown) {
-              toast(
-                (error as AxiosError<{ error: string }>).response?.data?.error,
-                {
-                  theme: "dark",
-                  type: "error",
-                },
+            reader.onloadend = async () => {
+              await sendImgToBackend(
+                imgToBase64(reader.result as string),
+                setPreviewUrl,
+                setText,
+                setLoading,
+                reader,
               );
-              setPreviewUrl(null);
-              setText("");
-            } finally {
-              setLoading(false);
-            }
-          };
+            };
 
-          reader.readAsDataURL(e.target.files![0]);
+            reader.readAsDataURL(compressedResult);
+          });
         }}
       />
       <label

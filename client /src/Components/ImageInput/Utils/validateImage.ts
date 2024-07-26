@@ -9,15 +9,16 @@ const validateImage = (file: File) => {
         type: "error",
       },
     );
-    return;
+    return 0;
   }
   if (file!.size > 5 * 1024 * 1024) {
     toast("Please ensure that the file size is less than 5MB.", {
       theme: "dark",
       type: "error",
     });
-    return;
+    return 0;
   }
+  return 1;
 };
 
 export default validateImage;

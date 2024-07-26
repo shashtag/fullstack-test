@@ -1,3 +1,1 @@
-export default (img: string) => {
-  img.replace("data:", "").replace(/^.+,/, "");
-};
+export default (img: string) => img.replace("data:", "").replace(/^.+,/, "");
