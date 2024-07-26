@@ -8,13 +8,15 @@ const app = express();
 
 app.use(cors());
 app.use(helmet());
-app.use(express.json());
+app.use(express.json({ limit: "50mb" }));
 app.use(
   rateLimit({
     windowMs: 1 * 60 * 1000, // 1 minutes
-    max: 5, // limit each IP to 10 requests per windowMs
-    message:
-      "Oops! It seems you’re making too many requests in a short time. Please wait a moment and try again later.", // message to send
+    max: 4, // limit each IP to 10 requests per windowMs
+    message: {
+      message:
+        "Oops! It seems you’re making too many requests in a short time. Please wait a moment and try again later.",
+    }, // message to send
   }),
 );
 
