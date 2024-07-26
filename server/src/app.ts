@@ -28,7 +28,7 @@ app.use(
 );
 
 // Use the OCR router for handling OCR-related routes
-app.use(ocrRouter);
+app.use("/api/", ocrRouter);
 
 // Handle undefined routes with a 404 error
 app.use("*", (_: express.Request, res: express.Response) =>

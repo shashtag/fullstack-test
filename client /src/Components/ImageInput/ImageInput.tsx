@@ -27,9 +27,8 @@ const ImageInput = ({
         id='Image'
         style={{ display: "none" }}
         onChange={async (e) => {
-          setLoading(true);
           if (validateImage(e.target.files![0]) === 0) return; // Validate the image
-
+          setLoading(true);
           // Compress the image before uploading
           compressImage(e.target.files![0], (compressedResult) => {
             const reader = new FileReader();

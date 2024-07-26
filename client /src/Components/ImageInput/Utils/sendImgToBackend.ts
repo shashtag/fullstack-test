@@ -2,7 +2,6 @@ import axios, { AxiosError } from "axios";
 import { toast } from "react-toastify";
 
 // Export an asynchronous function that calls OCR processing API
-
 export default async (
   base64Img: string,
   setPreviewUrl: React.Dispatch<
@@ -13,7 +12,7 @@ export default async (
   reader: FileReader,
 ) => {
   try {
-    const res = await axios.post("http://localhost:8000/ocr", {
+    const res = await axios.post(import.meta.env.VITE_API + "/api/ocr", {
       image: base64Img,
     });
 
