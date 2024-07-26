@@ -1,59 +1,40 @@
 import { useState } from "react";
+import ImageInput from "./Components/ImageInput";
+import Loader from "./Components/Common/Loader";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ImgPreview from "./Components/ImgPreview";
+import TextDisplay from "./Components/TextDisplay";
 
 function App() {
-  const [image, setImage] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | ArrayBuffer | null>(
     null,
   );
+  const [loading, setLoading] = useState(false);
+
+  const [text, setText] = useState("");
   return (
-    <>
-      <input
-        type='file'
-        accept='image/*'
-        name='Image'
-        id='Image'
-        style={{ display: "none" }}
-        onChange={(e) => {
-          setImage(e.target.files![0]);
-          const reader = new FileReader();
+    <div>
+      <ToastContainer position='bottom-right' />
 
-          reader.onloadend = () => {
-            setPreviewUrl(reader.result);
-          };
-
-          reader.readAsDataURL(e.target.files![0]);
-        }}
+      <Loader loading={loading} />
+      <ImageInput
+        loading={loading}
+        setLoading={setLoading}
+        setPreviewUrl={setPreviewUrl}
+        setText={setText}
       />
-      <label
-        htmlFor='Image'
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          background: "#99A8B7",
-          height: "20vh",
-          fontSize: "1.5rem",
-          cursor: "pointer",
-        }}>
-        Upload Image
-      </label>
+
       <div
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           height: "80vh",
         }}>
-        <div
-          style={{
-            backgroundColor: "#7B937F",
-            backgroundImage: `url(${previewUrl})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "contain",
-          }}></div>
-        <textarea />
+        <ImgPreview previewUrl={previewUrl} />
+        <TextDisplay text={text} setText={setText} loading={loading} />
       </div>
-    </>
+    </div>
   );
 }
 
