@@ -5,8 +5,9 @@ export class OCR {
   }
 
   async readTextFromImage(): Promise<string> {
-    if (Math.floor(Math.random() * 10 + 1) === 1)
+    if (Math.floor(Math.random() * 2 + 1) === 1)
       throw new Error("Oops! Could not read the image please try again");
-    return "This is a mock text as a mock OCR response";
+    let r = Math.random().toString(36);
+    return "This is a mock text as a mock OCR response : " + r;
   }
 }

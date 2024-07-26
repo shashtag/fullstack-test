@@ -12,9 +12,9 @@ async function recognizeText(req: Request, res: Response) {
     const ocr = new OCR({ image });
     const text = await ocr.readTextFromImage();
 
-    res.send(text);
+    res.send({ message: text });
   } catch (e) {
-    res.status(500).send(e.message);
+    res.status(500).send({ message: e.message });
   }
 }
 
