@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/24</span>
+                <span class='fraction'>24/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/24</span>
+                <span class='fraction'>24/24</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -106,79 +106,79 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Constructor to initialize the OCR class with an image
 export class OCR {
   image: string;
-<span class="fstat-no" title="function not covered" >  constructor({ image }) {</span>
-<span class="cstat-no" title="statement not covered" >    this.image = image;</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  constructor({ image }) {
+    this.image = image;
+  }
 &nbsp;
   // Method to read text from the image
-<span class="fstat-no" title="function not covered" >  async readTextFromImage(): Promise&lt;string&gt; {</span>
+  async readTextFromImage(): Promise&lt;string&gt; {
     // Simulate a random error for demonstration purposes
-<span class="cstat-no" title="statement not covered" >    if (Math.floor(Math.random() * 2 + 1) === 1)</span>
-<span class="cstat-no" title="statement not covered" >      throw new Error("Oops! Could not read the image please try again");</span>
+    if (Math.floor(Math.random() * 2 + 1) === 1)
+      throw new Error("Oops! Could not read the image please try again");
 &nbsp;
     // Generate a mock OCR response
-<span class="cstat-no" title="statement not covered" >    let r = Math.random().toString(36);</span>
-<span class="cstat-no" title="statement not covered" >    return "This is a mock text as a mock OCR response : " + r;</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+    let r = Math.random().toString(36);
+    return "This is a mock text as a mock OCR response : " + r;
+  }
 &nbsp;
   // Method to validate the image before processing
-<span class="fstat-no" title="function not covered" >  async validateImage(): Promise&lt;void&gt; {</span>
+  async validateImage(): Promise&lt;void&gt; {
     // Check if the image is provided
-<span class="cstat-no" title="statement not covered" >    if (!this.image) {</span>
-<span class="cstat-no" title="statement not covered" >      throw new Error("Kindly upload an image to proceed.");</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+    if (!this.image || this.image.length === 0) {
+      throw new Error("Kindly upload an image to proceed.");
+    }
 &nbsp;
     // Check if the image size is less than 5MB
-<span class="cstat-no" title="statement not covered" >    if (this.getImageSize() &gt; 5) {</span>
-<span class="cstat-no" title="statement not covered" >      throw new Error("Image size should be less than 5MB");</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+    if (this.getImageSize() &gt; 5) {
+      throw new Error("Image size should be less than 5MB");
+    }
+  }
 &nbsp;
   // Private method to calculate the size of the image
-  private <span class="fstat-no" title="function not covered" >getImageSize(): number {</span>
-<span class="cstat-no" title="statement not covered" >    var stringLength = this.image.length - "data:image/png;base64,".length;</span>
+  private getImageSize(): number {
+    var stringLength = this.image.length - "data:image/png;base64,".length;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    var sizeInBytes = 4 * Math.ceil(stringLength / 3) * 0.5624896334383812;</span>
-<span class="cstat-no" title="statement not covered" >    return sizeInBytes / 1024 / 1024;</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+    var sizeInBytes = 4 * Math.ceil(stringLength / 3) * 0.5624896334383812;
+    return sizeInBytes / 1024 / 1024;
+  }
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -187,7 +187,7 @@ export class OCR {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-07-26T22:10:41.438Z
+                at 2024-07-26T22:21:29.334Z
             </div>
         <script src="../prettify.js"></script>
         <script>
