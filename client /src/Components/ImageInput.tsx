@@ -26,12 +26,18 @@ const ImageInput = ({
         style={{ display: "none" }}
         onChange={async (e) => {
           if (!e.target.files?.[0]) {
-            toast("No file selected", { theme: "dark", type: "error" });
+            toast(
+              "Whoops! It seems you did not select an image. Please choose one to continue.",
+              {
+                theme: "dark",
+                type: "error",
+              },
+            );
             return;
           }
           if (e.target.files?.[0]!.size > 5 * 1024 * 1024) {
             console.log(e.target.files?.[0]!.size);
-            toast("File size should be less than 5MB", {
+            toast("Please ensure that the file size is less than 5MB.", {
               theme: "dark",
               type: "error",
             });

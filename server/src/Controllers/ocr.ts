@@ -6,15 +6,17 @@ async function recognizeText(req: Request, res: Response) {
     const { image } = req.body;
 
     if (!image) {
-      return res.status(400).send("Image is required");
+      return res
+        .status(400)
+        .json({ message: "Kindly upload an image to proceed." });
     }
 
     const ocr = new OCR({ image });
     const text = await ocr.readTextFromImage();
 
-    res.send({ message: text });
+    res.json({ message: text });
   } catch (e) {
-    res.status(500).send({ message: e.message });
+    res.status(500).json({ message: e.message });
   }
 }
 
