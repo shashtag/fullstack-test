@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
+import helmet from "helmet";
 
 const app = express();
 
@@ -12,6 +13,7 @@ const limiter = rateLimit({
 });
 
 app.use(cors());
+app.use(helmet());
 app.use(limiter);
 app.use(express.json());
 
